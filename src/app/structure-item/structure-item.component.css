@@ -1,0 +1,17 @@
+:host { 
+    
+    width: 45%;
+    margin-bottom: 5px;
+}
+
+.border{
+    border: 1px solid black;
+}
+
+
+#name {
+    margin-bottom: 1px;
+}
+#id {
+    width: 50%
+}
