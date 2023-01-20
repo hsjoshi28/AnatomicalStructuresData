@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { ResponseData, Row, Structure } from '../anatomicalStructure.model';
+import {ResponseData, Row, Structure } from '../anatomicalStructure.model';
 
 @Component({
   selector: 'app-anatomical-structure',
@@ -13,7 +13,10 @@ export class AnatomicalStructureComponent {
   isLoading = false;
   structure : Structure[] = []
   row : Row[] = []
-  
+  anatomicalName:string[] = []
+  structName: Array<any> = []
+  result = ''
+
   constructor(private http: HttpClient) { 
     this.fetchPosts();
   }
@@ -21,16 +24,23 @@ export class AnatomicalStructureComponent {
   public fetchPosts() {
     this.isLoading = true;
     this.structure = [];
+    this.structName= [];
+    this.result = ''
 
     this.http
       .get<ResponseData>(this.url)
       .pipe(map((responseData:ResponseData) => {
         responseData.data?.map((rows:Row) =>{
           rows.anatomical_structures.map((struct:Structure) => {
-            if (struct.name )
-        
-            this.structure.push(struct);
-          })
+            // console.log(struct.name);
+            let result = this.structName.find(n => n === struct.name)
+            // console.log(result)
+            if ( ! (result)){
+              this.structName.push(struct.name);
+              this.structure.push(struct);
+            }
+          }
+          )
         });
         return this.structure;
       }))
@@ -41,7 +51,4 @@ export class AnatomicalStructureComponent {
       )
       
   }
-
-
-
 }
