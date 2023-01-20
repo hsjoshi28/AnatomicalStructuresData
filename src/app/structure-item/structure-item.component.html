@@ -1,0 +1,8 @@
+<div id="name">
+    <p class="border"><a  [ngClass]="{disabled: !post?.id}" (click)="onNameClick(post?.id)">Name: {{ post?.name }}</a></p>
+</div>
+
+
+<div id="id">
+    <p class="border">Id: {{ post?.id || 'Unknown ID' }}</p>
+</div>
