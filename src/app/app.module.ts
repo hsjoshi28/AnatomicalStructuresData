@@ -6,12 +6,14 @@ import { AnatomicalStructureComponent } from './anatomical-structure/anatomical-
 import { HttpClientModule } from '@angular/common/http';
 import { StructureItemComponent } from './structure-item/structure-item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StructureModalComponent } from './structure-modal/structure-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnatomicalStructureComponent,
-    StructureItemComponent
+    StructureItemComponent,
+    StructureModalComponent
   ],
   imports: [
     BrowserModule,
