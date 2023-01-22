@@ -18,3 +18,10 @@ export interface ResponseData {
     data?:Array<Row>;
     csv?: '';
 }
+
+export interface StructureDetails {
+    label: string;
+    description: string;
+    obo_id: string;
+    iri: string;
+  }

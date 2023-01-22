@@ -6,3 +6,34 @@
 <div id="id">
     <p class="border">Id: {{ post?.id || 'Unknown ID' }}</p>
 </div>
+
+
+<ng-template #modalTemplate let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{details?.label}}</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+
+        <div *ngIf="details?.description">
+            <h4>Description</h4>
+            <div>
+                {{details?.description}}
+            </div>
+        </div>
+
+        <div *ngIf="details?.obo_id">
+            <h4>Ontology Link</h4>
+            <div>
+                {{details?.obo_id}}
+            </div>
+        </div>
+
+        <div *ngIf="details?.iri">
+            <h4>IRI</h4>
+            <div>
+                {{details?.iri}}
+            </div>
+        </div>
+    </div>
+</ng-template>
